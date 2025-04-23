@@ -2,6 +2,7 @@ export {
     envCache,
     envSources,
     clearCache,
+    constructUrl,
     getVariableSource,
     getEnvironmentVariable,
     validateEnvironmentVariable,

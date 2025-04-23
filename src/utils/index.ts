@@ -1,4 +1,5 @@
 export {
+    constructUrl,
     getEnvironmentVariable,
     validateEnvironmentVariable,
     ensureRequiredEnvironmentVariables,

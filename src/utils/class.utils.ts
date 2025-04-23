@@ -69,3 +69,26 @@ export function ensureRequiredEnvironmentVariables(
     const requiredVariables = environment.getRequiredVariables();
     return environment.getVariables([...requiredVariables]);
 }
+
+/**
+ * Constructs a URL object from path segments.
+ * @example
+ * constructUrl('http://api', 'v1', 'auth', 'users')
+ * @returns URL('http://api/v1/auth/users')
+ */
+export const constructUrl = (...segments: string[]): URL => {
+    if (!segments.length) throw new Error('At least one segment is required');
+
+    const [base, ...paths] = segments;
+    const baseUrl = new URL(base);
+
+    if (!paths.length) return baseUrl;
+
+    const pathname = [baseUrl.pathname, ...paths]
+        .filter(Boolean)
+        .join('/')
+        .replace(/\/+/g, '/')
+        .replace(/^\/|\/$/g, '');
+
+    return new URL(pathname, baseUrl.origin);
+};

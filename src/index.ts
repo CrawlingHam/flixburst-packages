@@ -1,17 +1,17 @@
 import {
+    ensureRequiredEnvironmentVariables,
     validateEnvironmentVariable,
     getEnvironmentVariable,
-    ensureRequiredEnvironmentVariables,
-    clearCache,
     getVariableSource,
+    clearCache,
 } from './utils';
 
 export {
+    ensureRequiredEnvironmentVariables,
     validateEnvironmentVariable,
     getEnvironmentVariable,
-    ensureRequiredEnvironmentVariables,
-    clearCache,
     getVariableSource,
+    clearCache,
 };
 
 export { envCache, envSources, constructUrl } from './utils';

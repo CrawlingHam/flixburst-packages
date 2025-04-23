@@ -1,8 +1,7 @@
 {
     "name": "flixburst-environment_variables",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A flexible and extensible package for environment variables",
-    "type": "commonjs",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/types/index.d.ts",

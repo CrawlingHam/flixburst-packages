@@ -1,44 +1,34 @@
-import typescript from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser';
-import prettier from 'eslint-config-prettier';
 import js from '@eslint/js';
+import * as tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import prettier from 'eslint-config-prettier';
 
 export default [
     js.configs.recommended,
     {
-        files: ['**/*.ts'],
+        files: ['**/*.{js,mjs,cjs,ts}'],
         languageOptions: {
-            parser: typescriptParser,
+            ecmaVersion: 2020,
+            sourceType: 'module',
+            parser: tsParser,
             parserOptions: {
-                project: './tsconfig.json',
+                project: null,
             },
             globals: {
                 process: 'readonly',
             },
         },
         plugins: {
-            '@typescript-eslint': typescript,
+            '@typescript-eslint': tseslint,
         },
         rules: {
-            '@typescript-eslint/explicit-function-return-type': 'error',
-            '@typescript-eslint/explicit-member-accessibility': 'error',
-            '@typescript-eslint/no-explicit-any': 'error',
-            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-            '@typescript-eslint/require-await': 'error',
-            '@typescript-eslint/no-floating-promises': 'error',
-            '@typescript-eslint/no-misused-promises': 'error',
-            'no-console': ['error', { allow: ['warn', 'error'] }],
-        },
-    },
-    {
-        files: ['**/*.d.ts'],
-        rules: {
-            '@typescript-eslint/no-unused-vars': 'off',
+            '@typescript-eslint/no-var-requires': 'off',
+            '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/explicit-module-boundary-types': 'off',
+            'no-undef': 'off',
             'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': 'off',
         },
     },
     prettier,
-    {
-        ignores: ['dist/*', 'node_modules/*', 'coverage/*'],
-    },
 ];

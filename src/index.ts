@@ -1,20 +1,13 @@
-import {
-    ensureRequiredEnvironmentVariables,
-    validateEnvironmentVariable,
-    getEnvironmentVariable,
-    getVariableSource,
-    clearCache,
-} from './utils';
-
 export {
     ensureRequiredEnvironmentVariables,
     validateEnvironmentVariable,
     getEnvironmentVariable,
     getVariableSource,
+    constructUrl,
     clearCache,
-};
-
-export { envCache, envSources, constructUrl } from './utils';
+    envSources,
+    envCache,
+} from './utils';
 
 export { BaseEnvironment, Environment } from './classes';
 
